@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redaction Engine | Cybersecurity Hackathon</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Intelligent Redaction System</h1>
+            <p>Automated Sensitive Data Removal & Privacy Protection</p>
+        </header>
+
+        <div class="controls">
+            <label for="mode">MODE:</label>
+            <select id="mode">
+                <option value="Redact">REDACT (REMOVE)</option>
+                <option value="Mask">MASK (REPLACE)</option>
+            </select>
+            <button onclick="processText()">EXECUTE SYSTEM</button>
+        </div>
+
+        <div class="editor-area">
+            <div class="box">
+                <h3>INPUT DATA</h3>
+                <textarea id="inputText" placeholder="Paste raw unstructured text here..."></textarea>
+            </div>
+            <div class="box">
+                <h3>SECURE OUTPUT</h3>
+                <textarea id="outputText" readonly placeholder="Redacted result will appear here..."></textarea>
+            </div>
+        </div>
+
+        <div class="metrics">
+            <span>LEVENSHTEIN ACCURACY SCORE: <strong id="scoreVal">0.00%</strong></span>
+        </div>
+
+        <div class="table-container">
+            <h3>📋 DETECTED ENTITIES LOG</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ENTITY TYPE</th>
+                        <th>EXTRACTED TEXT</th>
+                        <th>START</th>
+                        <th>END</th>
+                    </tr>
+                </thead>
+                <tbody id="entityTableBody">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
